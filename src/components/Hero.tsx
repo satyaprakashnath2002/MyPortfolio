@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { HiArrowDown, HiOutlineMail } from "react-icons/hi";
+import { HiOutlineMail } from "react-icons/hi";
 import { FiGithub, FiExternalLink, FiDownload } from "react-icons/fi";
 
 
