@@ -76,7 +76,7 @@ textarea {
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(40px);
   opacity: 0.45;
 }
 
@@ -140,7 +140,7 @@ main,
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(6px);
 }
 
 .text-gradient {
@@ -365,7 +365,7 @@ main,
   background: var(--gradient);
   opacity: 0.5;
   filter: blur(22px);
-  animation: photo-glow 4s ease-in-out infinite alternate;
+  animation: photo-glow 6s ease-in-out 2 alternate;
   pointer-events: none;
 }
 
@@ -392,7 +392,7 @@ main,
     rgba(124, 108, 246, 0.55),
     rgba(56, 189, 248, 0.35)
   );
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
 }
 
 .hero-photo {
@@ -1088,7 +1088,7 @@ main,
 }
 
 .project-card:hover .project-image {
-  transform: scale(1.06);
+  transform: scale(1.02);
 }
 
 .project-media-shade {

@@ -17,55 +17,76 @@ export function About({
   paragraphs,
   location,
   email,
-  phone,
+ phone,
   shortName,
   highlights,
   education,
 }: AboutProps) {
+  const isMobile =
+    typeof window !== "undefined" && window.innerWidth < 768;
+
   return (
     <section id="about" className="section about">
-      <SectionHeading index="01" title="About me" subtitle="Who I am and what I do" />
+      <SectionHeading
+        index="01"
+        title="About me"
+        subtitle="Who I am and what I do"
+      />
 
       <div className="about-grid">
         <Reveal className="about-card glass">
           {paragraphs.map((p, i) => (
             <p key={i}>{p}</p>
           ))}
+
           <div className="about-meta">
             <div>
               <span className="meta-label">Location</span>
               <span>{location}</span>
             </div>
+
             <div>
               <span className="meta-label">Email</span>
               <a href={`mailto:${email}`}>{email}</a>
             </div>
+
             <div>
               <span className="meta-label">Phone</span>
-              <a href={`tel:${phone.replace(/\s/g, "")}`}>{phone}</a>
+              <a href={`tel:${phone.replace(/\s/g, "")}`}>
+                {phone}
+              </a>
             </div>
           </div>
+
           <div className="education-inline">
             <span className="meta-label">Education</span>
-            <p className="education-degree">{education.degree}</p>
-            <p className="education-school">{education.school}</p>
+
+            <p className="education-degree">
+              {education.degree}
+            </p>
+
+            <p className="education-school">
+              {education.school}
+            </p>
+
             <p className="education-detail">
               {education.period} · {education.detail}
             </p>
           </div>
         </Reveal>
 
-        <Reveal className="about-visual" delay={0.1}>
+        <Reveal className="about-visual" delay={0.03}>
           <motion.div
             className="code-window glass"
-            whileHover={{ y: -4 }}
-            transition={{ type: "spring", stiffness: 300, damping: 24 }}
+            whileHover={!isMobile ? { y: -2 } : undefined}
+            transition={{ duration: 0.2 }}
           >
             <div className="window-bar">
               <span />
               <span />
               <span />
             </div>
+
             <pre>
               <code>{`const developer = {
   name: "${shortName}",
@@ -83,11 +104,16 @@ export default developer;`}</code>
               <motion.span
                 key={badge}
                 className="badge"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2 + i * 0.08 }}
-                whileHover={{ scale: 1.05 }}
+                transition={{
+                  delay: i * 0.03,
+                  duration: 0.25,
+                }}
+                whileHover={
+                  !isMobile ? { y: -1 } : undefined
+                }
               >
                 {badge}
               </motion.span>

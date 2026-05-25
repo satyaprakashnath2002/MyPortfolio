@@ -73,6 +73,7 @@ function ProjectMedia({
           className="project-image"
           loading="lazy"
           decoding="async"
+          sizes="(max-width: 768px) 100vw, 50vw"
           onError={() => setFailed(true)}
         />
       ) : (
@@ -128,12 +129,8 @@ function ProjectCard({
   return (
     <motion.article
       className={`project-card${featured ? " featured" : ""}`}
-      whileHover={{ y: -8 }}
-      transition={{
-        type: "spring",
-        stiffness: 380,
-        damping: 28,
-      }}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2 }}
     >
       <div className="project-card-border" aria-hidden />
 
@@ -184,7 +181,7 @@ export function Projects({ projects }: ProjectsProps) {
         {projects.map((project, i) => (
           <Reveal
             key={project.id}
-            delay={i * 0.08}
+            delay={i * 0.03}
             className="project-reveal"
           >
             <ProjectCard

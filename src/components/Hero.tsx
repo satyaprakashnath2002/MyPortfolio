@@ -27,11 +27,11 @@ const container = {
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.35 },
   },
 };
 
@@ -52,9 +52,9 @@ export function Hero({
       <div className="hero-layout">
         <motion.figure
           className="hero-photo-wrap"
-          initial={{ opacity: 0, scale: 0.94, y: 16 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, }}
         >
           <div className="hero-photo-ring" aria-hidden />
           <div className="hero-photo-frame glass">
@@ -156,11 +156,13 @@ export function Hero({
         aria-label="Scroll to about"
       >
         <motion.span
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity }}
-        >
-          <HiArrowDown />
-        </motion.span>
+          animate={{ y: [0, 3, 0] }}
+          transition={{
+            duration: 1,
+            repeat: Infinity,
+            repeatDelay: 1.5,
+          }}
+        />
       </motion.a>
     </section>
   );
