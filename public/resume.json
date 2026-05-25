@@ -1,0 +1,7 @@
+{
+  "note": "Add your resume file into /public (e.g. /public/resume.pdf) and update src/data/profile.ts with resumeUrl.",
+  "example": {
+    "resumeUrl": "/resume.pdf"
+  }
+}
+
